@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <properties resource="config/connection-info.properties"/>
+
+    <typeAliases>
+        <typeAlias alias="OriginDTO" type="com.brorsoo.common.OriginDTO"/>
+        <typeAlias alias="BeanDTO" type="com.brorsoo.common.BeanDTO"/>
+    </typeAliases>
+
+    <environments default="dev">
+        <environment id="dev">
+            <!-- JDBC와 MANAGED 둘 중 하나 선택 가능 -->
+            <transactionManager type="JDBC"/>
+            <!-- POOLED 와 UNPOOLED 선택 가능 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <package name="com.brorsoo.mapper"/>
+    </mappers>
+
+</configuration>

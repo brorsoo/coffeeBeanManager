@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.brorsoo.mapper.BeanMapper">
+
+    <resultMap id="originAndBeanResultMap" type="OriginDTO">
+        <id property="originCode" column="origin_code"/>
+        <result property="originName" column="origin_name" />
+        <result property="beanKind" column="bean_kind" />
+        <collection property="beanList" ofType="BeanDTO">
+            <id property="beanNo" column="bean_no"/>
+            <result property="beanName" column="bean_name" />
+            <result property="originCode" column="origin_code" />
+            <result property="taste" column="taste" />
+            <result property="weight" column="weight" />
+            <result property="extraCount" column="extra_count" />
+        </collection>
+    </resultMap>
+
+    <select id="selectAllBaen" resultMap="originAndBeanResultMap">
+        select
+            B.bean_no
+            , B.bean_name
+            , A.origin_code
+            , A.origin_name
+            , A.bean_kind
+            , B.taste
+            , B.weight
+            , B.extra_count
+        from tbl_bean_origin A
+        left join tbl_coffee_bean B on (A.origin_code = B.origin_code)
+        order by B.bean_no
+    </select>
+
+
+
+
+</mapper>
