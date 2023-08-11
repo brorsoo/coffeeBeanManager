@@ -38,6 +38,7 @@ CREATE TABLE tbl_coffee_bean
 (
     bean_no         NUMBER NOT NULL,
     bean_name       VARCHAR2(50) NOT NULL,
+    bean_price      NUMBER NOT NULL,
     origin_code     NUMBER NOT NULL,
     taste           VARCHAR2(20) NOT NULL,
     weight          NUMBER,
@@ -46,6 +47,7 @@ CREATE TABLE tbl_coffee_bean
 
 COMMENT ON COLUMN tbl_coffee_bean.bean_no IS '원두번호';
 COMMENT ON COLUMN tbl_coffee_bean.bean_name IS '원두명';
+COMMENT ON COLUMN tbl_coffee_bean.bean_price IS '가격';
 COMMENT ON COLUMN tbl_coffee_bean.origin_code IS '원산지';
 COMMENT ON COLUMN tbl_coffee_bean.taste IS '맛';
 COMMENT ON COLUMN tbl_coffee_bean.weight IS '포장무게';
@@ -84,30 +86,30 @@ INSERT INTO tbl_bean_origin VALUES (SEQ_ORIGIN_NO.NEXTVAL, '인도네시아', '�
 
 -- tbl_coffee_bean 정보입력
 
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '예가체프', 1, '신맛', 500, 10);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '하라', 1, '초콜릿맛', 500, 10);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '시다모', 1, '신맛', 500, 10);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '짐마', 1, '쓴맛', 500, 10);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '산토스', 2, '신맛', 1000, 5);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '수프리모', 3, '신맛', 500, 30);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '안티구아', 4, '신맛', 500, 10);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '우에우에테낭고', 4, '신맛', 500, 10);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '케냐AA', 5, '신맛', 500, 10);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '킬리만자로', 6, '신맛', 1000, 20);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '음베야', 6, '신맛', 1000, 20);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '아루샤', 6, '신맛', 1000, 20);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '타라주', 7, '신맛', 500, 10);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '코나', 8, '신맛', 500, 10);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '블루마운틴', 9, '신맛', 1000, 20);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '위즐', 10, '초콜릿맛', 500, 10);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '카트루', 10, '쓴맛', 500, 10);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '우간다', 11, '쓴맛', 500, 10);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '몬순말라바르', 12, '쓴맛', 500, 10);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '블루마운틴', 13, '쓴맛', 1000, 10);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '만델링', 14, '신맛', 500, 20);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '루왁', 14, '부드러운맛', 500, 20);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '토라잔', 14, '단맛', 500, 20);
-INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '아체가요', 14, '쓴맛', 500, 20);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '예가체프', 13000,1, '신맛', 500, 10);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '하라', 12000, 1, '초콜릿맛', 500, 10);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '시다모', 13000, 1, '신맛', 500, 10);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '짐마', 12500, 1, '쓴맛', 500, 10);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '산토스', 23000, 2, '신맛', 1000, 5);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '수프리모', 12000, 3, '신맛', 500, 30);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '안티구아', 13000, 4, '신맛', 500, 10);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '우에우에테낭고', 12000, 4, '신맛', 500, 10);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '케냐AA', 11000, 5, '신맛', 500, 10);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '킬리만자로', 22000, 6, '신맛', 1000, 20);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '음베야', 23000, 6, '신맛', 1000, 20);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '아루샤', 21000, 6, '신맛', 1000, 20);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '타라주', 12000, 7, '신맛', 500, 10);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '코나', 15000, 8, '신맛', 500, 10);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '블루마운틴', 22000, 9, '신맛', 1000, 20);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '위즐', 12000, 10, '초콜릿맛', 500, 10);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '카트루', 11000, 10, '쓴맛', 500, 10);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '우간다', 12000, 11, '쓴맛', 500, 10);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '몬순말라바르', 12000, 12, '쓴맛', 500, 10);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '블루마운틴', 23000, 13, '쓴맛', 1000, 10);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '만델링', 13000, 14, '신맛', 500, 20);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '루왁', 12000, 14, '부드러운맛', 500, 20);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '토라잔', 14000, 14, '단맛', 500, 20);
+INSERT INTO tbl_coffee_bean VALUES (SEQ_BEAN_NO.NEXTVAL, '아체가요', 12000, 14, '쓴맛', 500, 20);
 
 COMMIT;
 

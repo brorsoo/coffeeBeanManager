@@ -3,6 +3,7 @@ package com.brorsoo.common;
 public class BeanDTO {
     private int beanNo;
     private String beanName;
+    private int price;
     private int originCode;
     private String taste;
     private Integer weight;
@@ -10,9 +11,10 @@ public class BeanDTO {
 
     public BeanDTO() { }
 
-    public BeanDTO(int beanNo, String beanName, int originCode, String taste, Integer weight, int extraCount) {
+    public BeanDTO(int beanNo, String beanName, int price, int originCode, String taste, Integer weight, int extraCount) {
         this.beanNo = beanNo;
         this.beanName = beanName;
+        this.price = price;
         this.originCode = originCode;
         this.taste = taste;
         this.weight = weight;
@@ -33,6 +35,14 @@ public class BeanDTO {
 
     public void setBeanName(String beanName) {
         this.beanName = beanName;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public int getOriginCode() {
@@ -72,6 +82,7 @@ public class BeanDTO {
         return "BeanDTO{" +
                 "beanNo=" + beanNo +
                 ", beanName='" + beanName + '\'' +
+                ", price=" + price +
                 ", originCode=" + originCode +
                 ", taste='" + taste + '\'' +
                 ", weight=" + weight +

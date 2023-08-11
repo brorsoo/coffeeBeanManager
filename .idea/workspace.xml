@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b264c87c-eb48-4581-a3c3-8be57b7160b4" name="Changes" comment="first commit" />
+    <list default="true" id="b264c87c-eb48-4581-a3c3-8be57b7160b4" name="Changes" comment="first commit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brorsoo/common/SearchCriteria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brorsoo/common/BeanDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brorsoo/common/BeanDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brorsoo/controller/BeanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brorsoo/controller/BeanController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brorsoo/mapper/BeanMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brorsoo/mapper/BeanMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brorsoo/run/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brorsoo/run/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brorsoo/service/BeanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brorsoo/service/BeanService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brorsoo/view/PrintResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brorsoo/view/PrintResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/brorsoo/mapper/BeanMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/brorsoo/mapper/BeanMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config/mybastis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/mybastis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dbSql/CoffeeBean_Script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dbSql/CoffeeBean_Script.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,8 +28,36 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="coffeeBeanManager" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/resources/com/brorsoo/mapper/BeanMapper.xml" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="2TkBAHAzdgkrDPI5pYlwyODGnSA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -28,9 +69,46 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Lecture/4_mybatis/01_lecture_source/chap03-crud-lecture-source"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Lecture\4_mybatis\01_lecture_source\coffeeBeanManager\src\main\resources\config" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Lecture\4_mybatis\01_lecture_source\coffeeBeanManager\src\main\resources\config" />
+      <recent name="C:\Lecture\4_mybatis\01_lecture_source\coffeeBeanManager\src\main\resources" />
+      <recent name="C:\Lecture\4_mybatis\01_lecture_source\coffeeBeanManager\src\main\resources\dbSql" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.brorsoo.mapper" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.brorsoo.common" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.brorsoo.run.Application" />
+      <module name="coffeeBeanManager.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.brorsoo.run.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Application" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -48,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691577327350</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1691659632567</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1691659632567</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

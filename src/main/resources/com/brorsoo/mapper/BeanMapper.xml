@@ -19,10 +19,17 @@
         </collection>
     </resultMap>
 
+    <resultMap id="originResultMap" type="OriginDTO">
+        <id property="originCode" column="origin_code"/>
+        <result property="originName" column="origin_name" />
+        <result property="beanKind" column="bean_kind" />
+    </resultMap>
+
     <select id="selectAllBaen" resultMap="originAndBeanResultMap">
         select
             B.bean_no
             , B.bean_name
+            , B.bean_price
             , A.origin_code
             , A.origin_name
             , A.bean_kind
@@ -34,6 +41,49 @@
         order by B.bean_no
     </select>
 
+    <select id="selectOrigin" resultMap="originResultMap">
+        select
+            A.origin_code
+            , A.origin_name
+            , A.bean_kind
+        from tbl_bean_origin A
+        order by A.origin_code
+    </select>
+
+    <select id="selectChoice" resultMap="originAndBeanResultMap" parameterType="SearchCriteria">
+        select
+            B.bean_no
+            , B.bean_name
+            , B.bean_price
+            , A.origin_code
+            , A.origin_name
+            , A.bean_kind
+            , B.taste
+            , B.weight
+            , B.extra_count
+        from tbl_bean_origin A
+        left join tbl_coffee_bean B on (A.origin_code = B.origin_code)
+        <choose>
+            <when test="condition == '이름'">
+                where B.bean_name = #{ value }
+            </when>
+            <when test='condition == "맛"'>
+                where B.taste = #{ value }
+            </when>
+            <when test="condition == '원산지'">
+                where A.origin_name = #{ value }
+            </when>
+            <when test="condition == '품종'">
+                where A.bean_kind = #{ value }
+            </when>
+        </choose>
+        order by B.bean_no
+    </select>
+
+    <insert id="insertBean" parameterType="BeanDTO">
+        INSERT INTO tbl_coffee_bean
+            VALUES (SEQ_BEAN_NO.NEXTVAL, #{ beanName }, #{ price }, #{ originCode }, #{ taste }, #{ weight }, #{ weight })
+    </insert>
 
 
 

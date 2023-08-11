@@ -10,6 +10,7 @@
     <typeAliases>
         <typeAlias alias="OriginDTO" type="com.brorsoo.common.OriginDTO"/>
         <typeAlias alias="BeanDTO" type="com.brorsoo.common.BeanDTO"/>
+        <typeAlias alias="SearchCriteria" type="com.brorsoo.common.SearchCriteria"/>
     </typeAliases>
 
     <environments default="dev">

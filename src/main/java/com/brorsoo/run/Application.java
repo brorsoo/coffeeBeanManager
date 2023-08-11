@@ -1,7 +1,12 @@
 package com.brorsoo.run;
 
+import com.brorsoo.common.BeanDTO;
+import com.brorsoo.common.OriginDTO;
+import com.brorsoo.common.SearchCriteria;
 import com.brorsoo.controller.BeanController;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Application {
@@ -31,6 +36,8 @@ public class Application {
                 case 99 :
                     System.out.println("프로그램을 종료합니다.");
                     return;
+                default:
+                    System.out.println("다시 입력해주세요.");
             }
 
         } while(true);
@@ -59,13 +66,15 @@ public class Application {
                     beanController.selectAllBean();
                     break;
                 case 2 :
-//                    menuService.selectMenuByPrice(inputPrice());
+                    beanController.selectChoice(inputSearchCriteria(2));
                     break;
                 case 3 :
-
+                    beanController.selectChoice(inputSearchCriteria(3));
                     break;
                 case 99 :
                     return;
+                default:
+                    System.out.println("다시 입력해주세요.");
             }
 
         } while(true);
@@ -82,7 +91,7 @@ public class Application {
 
         do {
             System.out.println("\n========= 관리 sub 메뉴 ===========");
-            System.out.println("1. 전체 원두 리스트 조회");
+            System.out.println("1. 원두 리스트 조회");
             System.out.println("2. 원두 추가");
             System.out.println("3. 원두 수정");
             System.out.println("4. 원두 삭제");
@@ -92,10 +101,11 @@ public class Application {
 
             switch (no) {
                 case 1 :
-//                    menuService.selectMenuByPrice(inputPrice());
+                    beanController.selectAllBean();
                     break;
                 case 2 :
-
+                    beanController.selectOrigin();
+                    beanController.insertBean(inputInsertBean());
                     break;
                 case 3 :
 
@@ -105,6 +115,8 @@ public class Application {
                     break;
                 case 99 :
                     return;
+                default:
+                    System.out.println("다시 입력해주세요.");
             }
 
         } while(true);
@@ -145,4 +157,54 @@ public class Application {
         } while(true);
 
     }
+
+    private static SearchCriteria inputSearchCriteria(int no) {
+
+        Scanner sc = new Scanner(System.in);
+        String condition = "";
+
+        if (no == 2){
+            System.out.print("선택 조회 (이름 or 맛) : ");
+            condition = sc.nextLine();
+        }
+        if (no == 3){
+            System.out.print("선택 조회 (원산지 or 품종) : ");
+            condition = sc.nextLine();
+        }
+
+        System.out.print("조건을 입력해주세요 : ");
+        String value = sc.nextLine();
+
+        return new SearchCriteria(condition, value);
+    }
+
+    private static BeanDTO inputInsertBean() {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\n=== 상단에 원산지 리스트를 참고해서 작성해주세요 ===");
+        System.out.print("원두이름를 입력하세요 : ");
+        String name = sc.nextLine();
+        System.out.print("원두 가격을 입력하세요 : ");
+        int price = sc.nextInt();
+        System.out.print("원산지 코드를 입력하세요 : ");
+        int originCode = sc.nextInt();
+        sc.nextLine();
+        System.out.print("맛을 입력하세요 : ");
+        String taste = sc.nextLine();
+        System.out.print("포장 무게를 입력하세요(500, 1000) : ");
+        int weight = sc.nextInt();
+
+        BeanDTO beanList = new BeanDTO();
+        beanList.setBeanName(name);
+        beanList.setPrice(price);
+        beanList.setOriginCode(originCode);
+        beanList.setTaste(taste);
+        beanList.setWeight(weight);
+        beanList.setExtraCount(0);
+
+        return beanList;
+
+    }
+
+
 }
