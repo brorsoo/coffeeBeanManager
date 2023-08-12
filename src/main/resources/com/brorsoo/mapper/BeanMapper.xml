@@ -12,6 +12,7 @@
         <collection property="beanList" ofType="BeanDTO">
             <id property="beanNo" column="bean_no"/>
             <result property="beanName" column="bean_name" />
+            <result property="price" column="bean_price" />
             <result property="originCode" column="origin_code" />
             <result property="taste" column="taste" />
             <result property="weight" column="weight" />
@@ -25,7 +26,20 @@
         <result property="beanKind" column="bean_kind" />
     </resultMap>
 
-    <select id="selectAllBaen" resultMap="originAndBeanResultMap">
+    <resultMap id="beanResultMap" type="BeanDTO">
+        <id property="beanNo" column="bean_no"/>
+        <result property="beanName" column="bean_name" />
+        <result property="price" column="bean_price" />
+        <result property="originCode" column="origin_code" />
+        <result property="taste" column="taste" />
+        <result property="weight" column="weight" />
+        <result property="extraCount" column="extra_count" />
+    </resultMap>
+
+
+
+    <!-- 조인 All 조회문 -->
+    <select id="selectJoinAllBaen" resultMap="originAndBeanResultMap">
         select
             B.bean_no
             , B.bean_name
@@ -41,6 +55,23 @@
         order by B.bean_no
     </select>
 
+
+    <!-- 원두 테이블 조회 쿼리 -->
+    <select id="selectAllBean" resultMap="beanResultMap">
+        select
+            B.bean_no
+            , B.bean_name
+            , B.bean_price
+            , B.origin_code
+            , B.taste
+            , B.weight
+            , B.extra_count
+        from tbl_coffee_bean B
+        order by B.bean_no
+    </select>
+
+
+    <!-- 원산지 테이블 조회 쿼리 -->
     <select id="selectOrigin" resultMap="originResultMap">
         select
             A.origin_code
@@ -50,6 +81,8 @@
         order by A.origin_code
     </select>
 
+
+    <!-- 원두 선택 조회 쿼리 -->
     <select id="selectChoice" resultMap="originAndBeanResultMap" parameterType="SearchCriteria">
         select
             B.bean_no
@@ -80,11 +113,58 @@
         order by B.bean_no
     </select>
 
+
+    <!-- 원두 추가 쿼리 -->
     <insert id="insertBean" parameterType="BeanDTO">
         INSERT INTO tbl_coffee_bean
-            VALUES (SEQ_BEAN_NO.NEXTVAL, #{ beanName }, #{ price }, #{ originCode }, #{ taste }, #{ weight }, #{ weight })
+            VALUES (SEQ_BEAN_NO.NEXTVAL, #{ beanName }, #{ price }, #{ originCode }, #{ taste }, #{ weight }, #{ extraCount })
     </insert>
 
 
+    <!-- 원두 수정 쿼리 -->
+    <update id="updateBean" parameterType="BeanDTO">
+        UPDATE TBL_COFFEE_BEAN
+        <set>
+            <if test="beanName != null and beanName != ''">
+                BEAN_NAME = #{ beanName }
+            </if>
+            <if test="price != null and price gt 0">
+                , BEAN_PRICE = #{ price }
+            </if>
+            <if test="originCode != null and originCode gt 0">
+                , ORIGIN_CODE = #{ originCode }
+            </if>
+            <if test="taste != null and taste != ''">
+                , TASTE = #{ taste }
+            </if>
+            <if test="weight != null and weight gt 0">
+                , WEIGHT = #{ weight }
+            </if>
+        </set>
+        WHERE BEAN_NO = #{ beanNo }
+    </update>
+
+
+    <!-- 원두 삭제 쿼리 -->
+    <delete id="deleteBean" parameterType="_int">
+        DELETE
+        FROM TBL_COFFEE_BEAN
+        WHERE BEAN_NO = #{ code }
+    </delete>
+
+
+    <!-- 입출고 쿼리 -->
+    <update id="storageOrReleaseBean" parameterType="SearchCriteria">
+        UPDATE TBL_COFFEE_BEAN
+        <set>
+            <if test="condition == '입고'">
+                extra_count = extra_count + #{ count }
+            </if>
+            <if test="condition == '출고'">
+                extra_count = extra_count - #{ count }
+            </if>
+        </set>
+        WHERE BEAN_NO = #{ code }
+    </update>
 
 </mapper>

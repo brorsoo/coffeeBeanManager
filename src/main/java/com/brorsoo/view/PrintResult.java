@@ -1,17 +1,19 @@
 package com.brorsoo.view;
 
+import com.brorsoo.common.BeanDTO;
 import com.brorsoo.common.OriginDTO;
 
 import java.util.List;
+import java.util.Objects;
 
 public class PrintResult {
-    public void printBeanList(List<OriginDTO> beanList) {
+    public void printJoinList(List<OriginDTO> beanList) {
         beanList.forEach(System.out::println);
     }
 
-//    public void printBean(List<OriginDTO> beanList) {
-//        // 넣어야할곳
-//    }
+    public void printBeanList(List<BeanDTO> beanList) {
+        beanList.forEach(System.out::println);
+    }
 
 
     public void printErrorMessage(String errorCode) {
@@ -19,31 +21,44 @@ public class PrintResult {
         String errorMessage = "";
 
         switch (errorCode) {
-            case "selectAllList" : errorMessage = "전체 원두 조회에 실패하였습니다.";
+            case "selectAllList" : errorMessage = "\n전체 원두 조회에 실패하였습니다.";
                 break;
-            case "selectOrigin" : errorMessage = "원산지 조회에 실패하였습니다.";
+            case "selectOrigin" : errorMessage = "\n원산지 조회에 실패하였습니다.";
                 break;
-            case "selectChoice" : errorMessage = "선택 조회에 실패하였습니다.";
+            case "selectChoice" : errorMessage = "\n선택 조회에 실패하였습니다.";
                 break;
-//            case "insert" : errorMessage = "메뉴 등록에 실패하였습니다.";
-//                break;
-//            case "update" : errorMessage = "메뉴 수정에 실패하였습니다.";
-//                break;
-//            case "delete" : errorMessage = "메뉴 삭제에 실패하였습니다.";
-//                break;
+            case "insert" : errorMessage = "\n원두 등록에 실패하였습니다.";
+                break;
+            case "update" : errorMessage = "\n원두 수정에 실패하였습니다.";
+                break;
+            case "delete" : errorMessage = "\n원두 삭제에 실패하였습니다.";
+                break;
+            case "storage" : errorMessage = "\n원두 입고에 실패하였습니다.";
+                break;
+            case "Release" : errorMessage = "\n원두 출고에 실패하였습니다.";
+                break;
         }
         System.out.println(errorMessage);
     }
 
     public void printSuccessMessage(String successCode) {
+
         String successMessage = "";
         switch (successCode) {
-            case "insert" : successMessage = "신규 원두 등록이 완료 되었습니다..";
+            case "insert" : successMessage = "\n신규 원두 등록이 되었습니다...";
                 break;
-//            case "update" : successMessage = "메뉴 수정이 완료 되었습니다..";
-//                break;
-//            case "delete" : successMessage = "메뉴 삭제가 완료 되었습니다..";
-//                break;
+            case "update" : successMessage = "\n원두 수정이 되었습니다...";
+                break;
+            case "delete" : successMessage = "\n원두 삭제가 되었습니다...";
+                break;
+            case "storage" : successMessage = "\n|￣￣￣￣￣￣￣|\n" +
+                                            "|  입고 완료  |\n" +
+                                            "|＿＿＿＿＿＿＿|";
+                break;
+            case "Release" : successMessage = "\n|￣￣￣￣￣￣￣|\n" +
+                                            "|  출고 완료  |\n" +
+                                            "|＿＿＿＿＿＿＿|";
+                break;
         }
         System.out.println(successMessage);
     }

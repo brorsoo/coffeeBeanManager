@@ -7,6 +7,7 @@ import com.brorsoo.service.BeanService;
 import com.brorsoo.view.PrintResult;
 
 import java.util.List;
+import java.util.Map;
 
 public class BeanController {
 
@@ -18,9 +19,21 @@ public class BeanController {
         printResult = new PrintResult();
     }
 
+    public void selectJoinAllBaen() {
+
+        List<OriginDTO> beanList = beanService.selectJoinAllBaen();
+
+        if(beanList != null && beanList.size() > 0) {
+            printResult.printJoinList(beanList);
+        } else {
+            printResult.printErrorMessage("selectAllList");
+        }
+
+    }
+
     public void selectAllBean() {
 
-        List<OriginDTO> beanList = beanService.selectAllBean();
+        List<BeanDTO> beanList = beanService.selectAllBean();
 
         if(beanList != null && beanList.size() > 0) {
             printResult.printBeanList(beanList);
@@ -35,7 +48,7 @@ public class BeanController {
         List<OriginDTO> beanList = beanService.selectChoice(searchCriteria);
 
         if(beanList != null && beanList.size() > 0) {
-            printResult.printBeanList(beanList);
+            printResult.printJoinList(beanList);
         } else {
             printResult.printErrorMessage("selectChoice");
         }
@@ -47,7 +60,7 @@ public class BeanController {
         List<OriginDTO> beanList = beanService.selectOrigin();
 
         if(beanList != null && beanList.size() > 0) {
-            printResult.printBeanList(beanList);
+            printResult.printJoinList(beanList);
         } else {
             printResult.printErrorMessage("selectOrigin");
         }
@@ -62,4 +75,52 @@ public class BeanController {
         }
 
     }
+
+    public void updateBean(BeanDTO beanDTO) {
+
+        if(beanService.updateBean(beanDTO)){
+            printResult.printSuccessMessage("update");
+        } else {
+            printResult.printErrorMessage("update");
+        }
+
+    }
+
+    public void deleteBaen(Map<String, String> parameter) {
+
+        int code = Integer.parseInt(parameter.get("code"));
+
+        if(beanService.deleteBean(code)){
+            printResult.printSuccessMessage("delete");
+        } else {
+            printResult.printErrorMessage("delete");
+        }
+
+    }
+
+    public void storageOrReleaseBean(SearchCriteria searchCriteria) {
+
+        if(beanService.storageOrReleaseBean(searchCriteria)){
+
+            if(searchCriteria.getCondition().equals("입고")){
+                printResult.printSuccessMessage("storage");
+            } else if (searchCriteria.getCondition().equals("출고")) {
+                printResult.printSuccessMessage("Release");
+            }
+
+        } else {
+
+            if(searchCriteria.getCondition().equals("입고")){
+                printResult.printErrorMessage("storage");
+            } else if (searchCriteria.getCondition().equals("출고")) {
+                printResult.printErrorMessage("Release");
+            } else {
+                System.out.println("조건을 잘못입력하셨습니다.");
+            }
+
+        }
+
+    }
+
+
 }

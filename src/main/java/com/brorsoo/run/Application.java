@@ -15,7 +15,7 @@ public class Application {
         Scanner sc = new Scanner(System.in);
 
         do {
-            System.out.println("=========== 원두 재고 관리 =============");
+            System.out.println("\n=========== 원두 재고 관리 =============");
             System.out.println("1. 원두 조회");
             System.out.println("2. 원두 관리");
             System.out.println("3. 원두 입출고");
@@ -63,7 +63,7 @@ public class Application {
 
             switch (no) {
                 case 1 :
-                    beanController.selectAllBean();
+                    beanController.selectJoinAllBaen();
                     break;
                 case 2 :
                     beanController.selectChoice(inputSearchCriteria(2));
@@ -104,14 +104,14 @@ public class Application {
                     beanController.selectAllBean();
                     break;
                 case 2 :
-                    beanController.selectOrigin();
+                    beanController.selectOrigin();      // insert 할때 참고용
                     beanController.insertBean(inputInsertBean());
                     break;
                 case 3 :
-
+                     beanController.updateBean(inputUpdateBean());
                     break;
                 case 4 :
-
+                    beanController.deleteBaen(inputCode());
                     break;
                 case 99 :
                     return;
@@ -134,21 +134,17 @@ public class Application {
         do {
             System.out.println("\n========= 입출고 sub 메뉴 ===========");
             System.out.println("1. 전체 원두 리스트 조회");
-            System.out.println("2. 원두 입고");
-            System.out.println("3. 원두 출고");
+            System.out.println("2. 원두 입고 / 출고");
             System.out.println("99. 이전 메뉴로");
             System.out.print("메뉴 번호를 입력하세요 : ");
             int no = sc.nextInt();
 
             switch (no) {
                 case 1 :
-//                    menuService.selectMenuByPrice(inputPrice());
+                    beanController.selectAllBean();
                     break;
                 case 2 :
-
-                    break;
-                case 3 :
-
+                    beanController.storageOrReleaseBean(inputstorageOrReleaseBean());
                     break;
                 case 99 :
                     return;
@@ -157,6 +153,7 @@ public class Application {
         } while(true);
 
     }
+
 
     private static SearchCriteria inputSearchCriteria(int no) {
 
@@ -177,6 +174,7 @@ public class Application {
 
         return new SearchCriteria(condition, value);
     }
+
 
     private static BeanDTO inputInsertBean() {
 
@@ -206,5 +204,61 @@ public class Application {
 
     }
 
+
+    private static BeanDTO inputUpdateBean() {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("수정할 원두 번호를 입력하세요 : ");
+        int code = sc.nextInt();
+        sc.nextLine();
+        System.out.print("수정할 원두 이름를 입력하세요 : ");
+        String name = sc.nextLine();
+        System.out.print("수정할 원두 가격을 입력하세요 : ");
+        int price = sc.nextInt();
+        System.out.print("수정할 원산지 코드를 입력하세요 : ");
+        int originCode = sc.nextInt();
+        sc.nextLine();
+        System.out.print("수정할 맛을 입력하세요 : ");
+        String taste = sc.nextLine();
+        System.out.print("수정할 포장 무게를 입력하세요(500, 1000) : ");
+        int weight = sc.nextInt();
+
+        BeanDTO beanList = new BeanDTO();
+        beanList.setBeanNo(code);
+        beanList.setBeanName(name);
+        beanList.setPrice(price);
+        beanList.setOriginCode(originCode);
+        beanList.setTaste(taste);
+        beanList.setWeight(weight);
+
+        return beanList;
+    }
+
+    private static Map<String, String> inputCode() {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("원두번호를 입력해주세요 : ");
+        String code = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("code", code);
+
+        return parameter;
+    }
+
+    private static SearchCriteria inputstorageOrReleaseBean() {
+
+        Scanner sc = new Scanner(System.in);
+        String condition = "";
+
+        System.out.print("항목 선택 입력 (입고 or 출고) : ");
+        condition = sc.nextLine();
+        System.out.print("변경할 원두 번호를 입력하세요 : ");
+        int code = sc.nextInt();
+        System.out.print("변경할 수량을 입력하세요 : ");
+        int count = sc.nextInt();
+
+        return new SearchCriteria(condition, code, count);
+    }
 
 }

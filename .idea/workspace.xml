@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b264c87c-eb48-4581-a3c3-8be57b7160b4" name="Changes" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brorsoo/common/SearchCriteria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brorsoo/common/BeanDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brorsoo/common/BeanDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brorsoo/controller/BeanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brorsoo/controller/BeanController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brorsoo/mapper/BeanMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brorsoo/mapper/BeanMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brorsoo/run/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brorsoo/run/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brorsoo/service/BeanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brorsoo/service/BeanService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brorsoo/view/PrintResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brorsoo/view/PrintResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/brorsoo/mapper/BeanMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/brorsoo/mapper/BeanMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config/mybastis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/mybastis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dbSql/CoffeeBean_Script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dbSql/CoffeeBean_Script.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,13 +55,13 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Lecture/4_mybatis/01_lecture_source/chap03-crud-lecture-source"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Lecture/4_mybatis/01_lecture_source/chap03-crud-lecture-source&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Lecture\4_mybatis\01_lecture_source\coffeeBeanManager\src\main\resources\config" />
