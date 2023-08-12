@@ -19,6 +19,8 @@ public class BeanController {
         printResult = new PrintResult();
     }
 
+
+    /* 전체 조인 조회 */
     public void selectJoinAllBaen() {
 
         List<OriginDTO> beanList = beanService.selectJoinAllBaen();
@@ -28,9 +30,10 @@ public class BeanController {
         } else {
             printResult.printErrorMessage("selectAllList");
         }
-
     }
 
+
+    /* 원두 테이블 조회 */
     public void selectAllBean() {
 
         List<BeanDTO> beanList = beanService.selectAllBean();
@@ -43,6 +46,8 @@ public class BeanController {
 
     }
 
+
+    /* 선택 조회 */
     public void selectChoice(SearchCriteria searchCriteria) {
 
         List<OriginDTO> beanList = beanService.selectChoice(searchCriteria);
@@ -55,6 +60,8 @@ public class BeanController {
 
     }
 
+
+    /* 원산지 테이블 조회 */
     public void selectOrigin() {
 
         List<OriginDTO> beanList = beanService.selectOrigin();
@@ -66,6 +73,8 @@ public class BeanController {
         }
     }
 
+
+    /* 원두추가 */
     public void insertBean(BeanDTO beanDTO) {
 
         if(beanService.insertBean(beanDTO)){
@@ -76,6 +85,8 @@ public class BeanController {
 
     }
 
+
+    /* 원두수정 */
     public void updateBean(BeanDTO beanDTO) {
 
         if(beanService.updateBean(beanDTO)){
@@ -86,6 +97,8 @@ public class BeanController {
 
     }
 
+
+    /* 원두삭제 */
     public void deleteBaen(Map<String, String> parameter) {
 
         int code = Integer.parseInt(parameter.get("code"));
@@ -98,6 +111,8 @@ public class BeanController {
 
     }
 
+
+    /* 원두 입출고 */
     public void storageOrReleaseBean(SearchCriteria searchCriteria) {
 
         if(beanService.storageOrReleaseBean(searchCriteria)){

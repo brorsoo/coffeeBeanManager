@@ -155,6 +155,7 @@ public class Application {
     }
 
 
+    /* 선택조회 입력 */
     private static SearchCriteria inputSearchCriteria(int no) {
 
         Scanner sc = new Scanner(System.in);
@@ -176,6 +177,7 @@ public class Application {
     }
 
 
+    /* 원두추가 입력 */
     private static BeanDTO inputInsertBean() {
 
         Scanner sc = new Scanner(System.in);
@@ -205,6 +207,7 @@ public class Application {
     }
 
 
+    /* 원두수정 입력 */
     private static BeanDTO inputUpdateBean() {
 
         Scanner sc = new Scanner(System.in);
@@ -234,6 +237,8 @@ public class Application {
         return beanList;
     }
 
+
+    /* 원두삭제 입력 */
     private static Map<String, String> inputCode() {
 
         Scanner sc = new Scanner(System.in);
@@ -246,6 +251,8 @@ public class Application {
         return parameter;
     }
 
+
+    /* 원두 입출고 입력 */
     private static SearchCriteria inputstorageOrReleaseBean() {
 
         Scanner sc = new Scanner(System.in);

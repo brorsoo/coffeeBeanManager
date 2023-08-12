@@ -10,11 +10,13 @@ public class SearchCriteria {
 
     public SearchCriteria() { }
 
+    /* 선택 조회용 생성자 */
     public SearchCriteria(String condition, String value) {
         this.condition = condition;
         this.value = value;
     }
 
+    /* 입 출고용 생성자 */
     public SearchCriteria(String condition, int code, int count) {
         this.condition = condition;
         this.code = code;

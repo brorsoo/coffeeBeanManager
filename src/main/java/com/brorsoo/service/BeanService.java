@@ -13,6 +13,9 @@ import static com.brorsoo.common.Template.getSqlSession;
 public class BeanService {
 
     private BeanMapper beanMapper;
+
+
+    /* 전체 조인 조회 */
     public List<OriginDTO> selectJoinAllBaen() {
 
         SqlSession sqlSession = getSqlSession();
@@ -25,6 +28,8 @@ public class BeanService {
         return originList;
     }
 
+
+    /* 원두 테이블 조회 */
     public List<BeanDTO> selectAllBean() {
 
         SqlSession sqlSession = getSqlSession();
@@ -37,6 +42,8 @@ public class BeanService {
         return beanList;
     }
 
+
+    /* 원산지 테이블 조회 */
     public List<OriginDTO> selectOrigin() {
 
         SqlSession sqlSession = getSqlSession();
@@ -47,9 +54,10 @@ public class BeanService {
         sqlSession.close();
 
         return originList;
-
     }
 
+
+    /* 선택 조회 */
     public List<OriginDTO> selectChoice(SearchCriteria searchCriteria) {
 
         SqlSession sqlSession = getSqlSession();
@@ -63,6 +71,8 @@ public class BeanService {
         return originList;
     }
 
+
+    /* 원두추가 */
     public boolean insertBean(BeanDTO beanDTO) {
 
         SqlSession sqlSession = getSqlSession();
@@ -82,6 +92,8 @@ public class BeanService {
         return result > 0;
     }
 
+
+    /* 원두수정 */
     public boolean updateBean(BeanDTO beanDTO) {
 
         SqlSession sqlSession = getSqlSession();
@@ -99,9 +111,10 @@ public class BeanService {
         sqlSession.close();
 
         return result > 0;
-
     }
 
+
+    /* 원두삭제 */
     public boolean deleteBean(int code) {
 
         SqlSession sqlSession = getSqlSession();
@@ -121,6 +134,8 @@ public class BeanService {
         return result > 0;
     }
 
+
+    /* 원두 입출고 */
     public boolean storageOrReleaseBean(SearchCriteria searchCriteria) {
 
         SqlSession sqlSession = getSqlSession();
@@ -138,7 +153,6 @@ public class BeanService {
         sqlSession.close();
 
         return result > 0;
-
     }
 
 

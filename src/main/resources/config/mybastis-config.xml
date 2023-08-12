@@ -7,6 +7,7 @@
 
     <properties resource="config/connection-info.properties"/>
 
+    <!-- 필요한 별칭 입력 -->
     <typeAliases>
         <typeAlias alias="OriginDTO" type="com.brorsoo.common.OriginDTO"/>
         <typeAlias alias="BeanDTO" type="com.brorsoo.common.BeanDTO"/>
